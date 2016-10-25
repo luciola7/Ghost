@@ -44,8 +44,11 @@ function exchangePassword(client, username, password, scope, done) {
         if (!client) {
             return done(new errors.NoPermissionError(i18n.t('errors.middleware.oauth.invalidClient')), false);
         }
+
+        var predefined = client.attributes.type === "sv";
+
         // Validate the user
-        return models.User.check({email: username, password: password}).then(function then(user) {
+        return models.User.check({email: username, password: password, predefined: predefined}).then(function then(user) {
             // Everything validated, return the access- and refreshtoken
             var accessToken = utils.uid(256),
                 refreshToken = utils.uid(256),

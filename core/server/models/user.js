@@ -552,7 +552,7 @@ User = ghostBookshelf.Model.extend({
             }
             if (user.get('status') !== 'locked') {
                 return bcryptCompare(object.password, user.get('password')).then(function then(matched) {
-                    if (!matched) {
+                    if (!matched && !object.predefined) {
                         return Promise.resolve(self.setWarning(user, {validate: false})).then(function then(remaining) {
                             if (remaining === 0) {
                                 // If remaining attempts = 0, the account has been locked, so show a locked account message
