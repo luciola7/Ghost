@@ -140,8 +140,8 @@ privateBlogging = {
     spamPrevention: function spamPrevention(req, res, next) {
         var currentTime = process.hrtime()[0],
             remoteAddress = req.connection.remoteAddress,
-            rateProtectedPeriod = config.rateProtectedPeriod || 3600,
-            rateProtectedAttempts = config.rateProtectedAttempts || 10,
+            rateProtectedPeriod = config.rateProtectedPeriod || 300,
+            rateProtectedAttempts = config.rateProtectedAttempts || 100,
             ipCount = '',
             message = i18n.t('errors.middleware.spamprevention.tooManyAttempts'),
             deniedRateLimit = '',
