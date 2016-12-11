@@ -272,8 +272,8 @@ ConfigManager.prototype.set = function (config) {
                 contentTypes: ['text/csv', 'application/csv', 'application/octet-stream']
             },
             images: {
-                extensions: ['.jpg', '.jpeg', '.gif', '.png', '.svg', '.svgz'],
-                contentTypes: ['image/jpeg', 'image/png', 'image/gif', 'image/svg+xml']
+                extensions: ['.jpg', '.jpeg', '.gif', '.png', '.svg', '.svgz', '.pdf'],
+                contentTypes: ['image/jpeg', 'image/png', 'image/gif', 'image/svg+xml', 'application/pdf']
             },
             db: {
                 extensions: ['.json', '.zip'],
